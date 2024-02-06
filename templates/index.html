@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="grid grid-cols-3 gap-14">
+  {% for annonce in annonces %}
+  <img src="{{manganime['url_image']}}"/>
+  <h2 href="{{manganime['url_manganime']}}">{{manganime["titre"]}}</h2>
+  {% endfor %}
+</section>
+
+{% endblock %}

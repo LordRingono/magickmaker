@@ -5,6 +5,11 @@ app = Flask("Magickmaker")
 
 @app.route('/')
 def index():
+  # variable qui servira a contenir les infos de la bdd
+  manganime = []
+  # titre du manganime : titre
+  # image du manganime : url_image
+  # lien du manganime : url_manganime
   return render_template("index.html")
 
 @app.route('/mangas')
@@ -17,6 +22,7 @@ def animes():
 
 @app.route('/manganime')
 def manganime():
+  
   return render_template("manganime.html")
 
 @app.route('/login')
