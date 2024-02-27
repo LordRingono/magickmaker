@@ -3,13 +3,19 @@ from flask import Flask, render_template, request, url_for, redirect, session
 import os
 app = Flask("Magickmaker")
 
+import pymongo
+mongo = pymongo.MongoClient(os.getenv("MONGO_KEY"))
+
+
 @app.route('/')
 def index():
+  db_manganimes = mongo.db.Cluster0
+  manganimes = db_manganimes.find({})
   # variable qui servira a contenir les infos de la bdd
-  manganimes = []
   # titre du manganime : titre
   # image du manganime : url_image
   # lien du manganime : url_manganime
+  # id du manganime : _id
   return render_template("index.html", manganimes=manganimes)
 
 @app.route('/mangas')
@@ -20,7 +26,7 @@ def mangas():
 def animes():
   return render_template("animes.html")
 
-@app.route('/manganime')
+@app.route('/manganime/<id_manganime>')
 def manganime():
   
   return render_template("manganime.html")
