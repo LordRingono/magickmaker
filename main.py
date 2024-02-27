@@ -9,7 +9,7 @@ mongo = pymongo.MongoClient(os.getenv("MONGO_KEY"))
 
 @app.route('/')
 def index():
-  db_manganimes = mongo.db.Cluster0
+  db_manganimes = mongo.db.animes
   manganimes = db_manganimes.find({})
   # variable qui servira a contenir les infos de la bdd
   # titre du manganime : titre
